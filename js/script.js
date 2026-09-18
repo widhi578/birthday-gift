@@ -150,7 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
     () => {
       launchConfetti();
       openGiftButton.classList.add('btn--opened');
-      openGiftButton.querySelector('.btn__label').textContent = 'Mission unlocked!';
+      // HTML memakai class .btn-label; fallback menjaga tombol tetap aman bila class diubah lagi.
+      const buttonLabel = openGiftButton.querySelector('.btn-label, .btn__label');
+      if (buttonLabel) {
+        buttonLabel.textContent = 'Mission unlocked!';
+      }
       revealMissionSections();
     },
     { once: true }
@@ -170,4 +174,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupTiltEffect();
 });
-

@@ -790,6 +790,114 @@ h1 {
   line-height: 1.75;
 }
 
+.relationship-choice {
+  position: relative;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 100% 0, rgba(18, 105, 190, 0.38), transparent 42%),
+    linear-gradient(135deg, #07152d, #0b2349 72%, #102f5b);
+  border-left: 4px solid var(--red);
+  box-shadow: 5px 6px 0 rgba(18, 105, 190, 0.3);
+}
+
+.relationship-choice::after {
+  content: '';
+  position: absolute;
+  top: -2.8rem;
+  right: -2.8rem;
+  width: 8rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(183, 220, 255, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 12px rgba(183, 220, 255, 0.04), 0 0 0 24px rgba(183, 220, 255, 0.03);
+  pointer-events: none;
+}
+
+.relationship-choice__eyebrow {
+  position: relative;
+  color: #9dceff;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.relationship-choice h4 {
+  position: relative;
+  max-width: 24ch;
+  margin: 0.55rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.25rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.relationship-choice__copy {
+  position: relative;
+  color: #c5d9f0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.relationship-choice__actions {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.25rem;
+}
+
+.choice-button {
+  min-height: 48px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: transform 0.2s var(--ease), background 0.2s ease, border-color 0.2s ease;
+}
+
+.choice-button:hover {
+  transform: translateY(-2px);
+}
+
+.choice-button:focus-visible {
+  outline: 3px solid #b7dcff;
+  outline-offset: 3px;
+}
+
+.choice-button--yes {
+  background: var(--red);
+  box-shadow: 3px 4px 0 var(--red-dark);
+}
+
+.choice-button--yes:hover {
+  background: #f3313c;
+}
+
+.choice-button--no {
+  border-color: rgba(183, 220, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.choice-button--no:hover {
+  border-color: #b7dcff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.choice-response {
+  position: relative;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(183, 220, 255, 0.25);
+  color: #e7f2ff;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .modal-signature {
   color: var(--red);
   font-weight: 700;
@@ -902,6 +1010,14 @@ h1 {
   .modal-panel {
     padding: 2.5rem 1.5rem 2rem;
     box-shadow: 8px 9px 0 var(--red), 0 35px 80px rgba(0, 0, 0, 0.5);
+  }
+
+  .relationship-choice {
+    padding: 1.25rem;
+  }
+
+  .relationship-choice__actions {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('letter-modal');
   const envelopeButton = document.getElementById('envelope');
   const closeButtons = document.querySelectorAll('[data-close-modal]');
+  const choiceYesButton = document.getElementById('choice-yes');
+  const choiceNoButton = document.getElementById('choice-no');
+  const choiceResponse = document.getElementById('choice-response');
   const tiltCards = document.querySelectorAll('[data-tilt]');
   const confettiCanvas = document.getElementById('confetti-canvas');
   const confettiContext = confettiCanvas.getContext('2d');
 
-  const birthdayMessage = 'Happy Birthday, Bro!';
+  const birthdayMessage = 'Happy Birthday, Sayaangg!';
   let typingIndex = 0;
   let animationFrameId = null;
   let lastFocusedElement = null;
@@ -103,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lastFocusedElement = document.activeElement;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
-    modal.querySelector('.modal__close').focus();
+    modal.querySelector('.modal-close').focus();
   }
 
   // Tutup modal dan kembalikan fokus ke tombol sebelumnya.
@@ -164,6 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
   envelopeButton.addEventListener('click', openModal);
   closeButtons.forEach((button) => {
     button.addEventListener('click', closeModal);
+  });
+
+  choiceYesButton.addEventListener('click', () => {
+    choiceResponse.textContent = 'Yeah! kitaa mulai dari sekarang yaa. Kita bangun lagi dari awal, terimaksih ya sayang';
+    choiceResponse.hidden = false;
+  });
+
+  choiceNoButton.addEventListener('click', () => {
+    choiceResponse.textContent = 'o-ookay adik menghargai keputusan abang and thank u for anything yang abang udah lakuin buat adik selama ini, adik sayang abang.';
+    choiceResponse.hidden = false;
   });
 
   document.addEventListener('keydown', (event) => {
